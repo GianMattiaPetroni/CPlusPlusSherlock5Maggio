@@ -15,7 +15,8 @@ int main()
 
     while (parola != "EXIT")
     {
-        cout << "inserisci una parola da trovare" << endl;
+        cout<< "------" << endl; 
+        cout<< "inserisci una parola da trovare" << endl;
         cin >> parola;
         ifstream fileInput("maggio.txt");
         if (fileInput.is_open())
@@ -26,6 +27,7 @@ int main()
         {
             cout << "il file non è stato aperto correttamente" << endl;
         }
+        cout<< "------";
 
         while (getline(fileInput, riga))
         {
@@ -59,6 +61,8 @@ int main()
                                 if (riga == "")
                                 {
                                     break;
+                                } else {
+                                    cout << riga << endl;
                                 }
                             }
                         }
