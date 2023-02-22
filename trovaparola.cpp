@@ -7,29 +7,47 @@ using namespace std;
 int main()
 {
 
-    // trovare le righe contenenti la parola data
-    // int trova(string parola)
-
-    ifstream fileInput("maggio.txt"); 
-    if (fileInput.is_open())
-    {
-        cout << "il file è stato aperto correttamente" << endl;
-    }
-    else
-    {
-        cout << "il file non è stato aperto correttamente" << endl;
-    }
-
-    int i = 1;
     string riga;
     string parola = "";
     int numeroRigaParolaTrovata = 0;
-    cout << "inserisci una parola da trovare" << endl;
-    cin >> parola;
+    int a = 1;
     while (parola != "EXIT")
     {
+        cout << "inserisci una parola da trovare" << endl;
+        cin >> parola;
+        ifstream fileInput("maggio.txt");
+        if (fileInput.is_open())
+        {
+            cout << "il file è stato aperto correttamente" << endl;
+        }
+        else
+        {
+            cout << "il file non è stato aperto correttamente" << endl;
+        }
+
         while (getline(fileInput, riga))
         {
+            if (a % 7 == 0)
+            {
+                cout << endl;
+            }
+            else if (riga == "")
+            {
+                cout << endl;
+            }
+            else if (a < 10)
+            {
+                cout << a << "   - " << riga << endl;
+            }
+            else if (a < 100)
+            {
+                cout << a << "  - " << riga << endl;
+            }
+            else
+            {
+                cout << a << " - " << riga << endl;
+            }
+            a++;
             // cout << "RIGA: " << riga << endl;
             numeroRigaParolaTrovata++;
             bool flag = false;                      // SE TROVO LA PAROLA IMPOSTO A TRUE
@@ -60,31 +78,12 @@ int main()
             {
                 cout << "PAROLA TROVATA IN RIGA: " << numeroRigaParolaTrovata << endl;
             }
+            else
+            {
+                cout << "PAROLA NON TROVATA" << endl;
+            }
         }
-    } while (getline(fileInput, riga))
-    {
-        if (i % 7 == 0)
-        {
-            cout << endl;
-        }
-        else if (riga == "")
-        {
-            cout << endl;
-        }
-        else if (i < 10)
-        {
-            cout << i << "   - " << riga << endl;
-        }
-        else if (i < 100)
-        {
-            cout << i << "  - " << riga << endl;
-        }
-        else
-        {
-            cout << i << " - " << riga << endl;
-        }
-        i++;
-    }  if()
+    }
+
     fileInput.close();
-    // fileOutput.close();
 }
