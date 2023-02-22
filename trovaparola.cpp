@@ -11,6 +11,7 @@ int main()
     string paragrafo = "";
     int numeroRigaParolaTrovata = 0;
     string accomulatore;
+    string righemancanti;
 
     while (parola != "EXIT")
     {
@@ -34,7 +35,7 @@ int main()
             }
             else
             {
-                accomulatore = " ";
+                accomulatore = "";
             }
 
             numeroRigaParolaTrovata++;
@@ -50,11 +51,13 @@ int main()
                         if (j == parola.length() - 1) // se le lettere sono uguali E sono all'ultima lettera della parola
                         {
                             flag = true; // PAROLA TROVATA
-                            cout << "TROVATA" << endl;
+                            cout << "LA PAROLA E' STATA TROVATA E QUESTA E' LA STROFA" << endl;
                             cout << accomulatore;
-                            
-                            while (getline(fileInput, riga)) {
-                                if(riga == " ") {
+
+                            while (getline(fileInput, riga))
+                            {
+                                if (riga == "")
+                                {
                                     break;
                                 }
                             }
@@ -71,10 +74,6 @@ int main()
             if (flag == true)
             {
                 cout << "PAROLA TROVATA IN RIGA: " << numeroRigaParolaTrovata << endl;
-            }
-            else
-            {
-                cout << "PAROLA NON TROVATA" << endl;
             }
         }
         fileInput.close();
